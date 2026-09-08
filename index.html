@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TINTA Print Studio — Bring Your Ideas to Life</title>
+<meta name="description" content="Full sublimation shirts, tarpaulin printing, and custom tote bags for your business, events, and personal needs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FDFCF9;
+    --paper-dim:#EFEBE1;
+    --paper-dim-2:#E7E1D2;
+    --ink:#16140F;
+    --ink-soft:#4A473E;
+    --ink-red:#E8412C;
+    --ink-red-dark:#C1301F;
+    --ink-cyan:#1AA6B7;
+    --ink-yellow:#F4B62E;
+    --line:rgba(22,20,15,0.14);
+    --line-strong:rgba(22,20,15,0.28);
+    --radius-s:6px;
+    --radius-m:10px;
+    --shadow-flat: 4px 4px 0 var(--ink);
+    --maxw:1180px;
+  }
+
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *,*::before,*::after{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3,.display{
+    font-family:'Anton', 'Arial Narrow', sans-serif;
+    font-weight:400;
+    letter-spacing:0.01em;
+    line-height:0.98;
+    margin:0;
+    text-transform:uppercase;
+  }
+
+  p{margin:0;}
+  a{color:inherit;text-decoration:none;}
+  img,svg{display:block;max-width:100%;}
+  button{font-family:inherit;cursor:pointer;}
+
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  section{padding:96px 0;}
+  @media (max-width:720px){
+    section{padding:64px 0;}
+  }
+
+  .eyebrow-line{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:18px;
+  }
+  .eyebrow-line .dot{
+    width:10px;height:10px;background:var(--ink-red);border-radius:50%;flex:none;
+  }
+  .eyebrow-line span{
+    font-size:0.82rem;
+    color:var(--ink-soft);
+    font-weight:600;
+  }
+
+  .section-head{
+    max-width:640px;
+    margin-bottom:48px;
+  }
+  .section-head h2{
+    font-size:clamp(2.1rem, 4.2vw, 3.1rem);
+    margin-bottom:14px;
+  }
+  .section-head p{
+    font-size:1.05rem;
+    color:var(--ink-soft);
+    max-width:52ch;
+  }
+
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:14px 26px;
+    border-radius:var(--radius-s);
+    font-weight:700;
+    font-size:0.98rem;
+    border:2px solid var(--ink);
+    transition:transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background:var(--ink-red);
+    border-color:var(--ink-red);
+    color:var(--paper);
+    box-shadow:4px 4px 0 var(--ink);
+  }
+  .btn-primary:hover{
+    transform:translate(-2px,-2px);
+    box-shadow:6px 6px 0 var(--ink);
+  }
+  .btn-secondary{
+    background:transparent;
+    color:var(--ink);
+    box-shadow:4px 4px 0 var(--ink-red);
+  }
+  .btn-secondary:hover{
+    transform:translate(-2px,-2px);
+    box-shadow:6px 6px 0 var(--ink-red);
+    background:var(--ink);
+    color:var(--paper);
+    border-color:var(--ink);
+  }
+  .btn-block{width:100%;}
+  .btn:active{transform:translate(0,0); box-shadow:2px 2px 0 var(--ink);}
+
+  /* ---------- nav ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:500;
+    background:rgba(253,252,249,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:16px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+  }
+  .logo{
+    font-family:'Anton',sans-serif;
+    font-size:1.6rem;
+    letter-spacing:0.02em;
+    display:flex;
+    align-items:baseline;
+    gap:2px;
+  }
+  .logo .dot-red{color:var(--ink-red);}
+
+  .nav-links{
+    display:flex;
+    align-items:center;
+    gap:32px;
+    list-style:none;
+    margin:0;padding:0;
+  }
+  .nav-links a{
+    font-weight:600;
+    font-size:0.95rem;
+    color:var(--ink);
+    position:relative;
+    padding:4px 0;
+  }
+  .nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0;bottom:-2px;
+    width:0%;
+    height:2px;
+    background:var(--ink-red);
+    transition:width 0.2s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+
+  .nav-cta{display:flex;align-items:center;gap:16px;}
+  .nav-cta .btn{padding:11px 20px;font-size:0.9rem;}
+
+  .burger{
+    display:none;
+    width:44px;height:44px;
+    border:2px solid var(--ink);
+    border-radius:var(--radius-s);
+    background:none;
+    align-items:center;
+    justify-content:center;
+  }
+  .burger span, .burger span::before, .burger span::after{
+    content:"";
+    display:block;
+    width:20px;height:2px;
+    background:var(--ink);
+    position:relative;
+    transition:transform 0.2s ease, opacity 0.2s ease;
+  }
+  .burger span::before{position:absolute; top:-6px;}
+  .burger span::after{position:absolute; top:6px;}
+  .burger.active span{background:transparent;}
+  .burger.active span::before{transform:translateY(6px) rotate(45deg);}
+  .burger.active span::after{transform:translateY(-6px) rotate(-45deg);}
+
+  @media (max-width:900px){
+    .nav-links{
+      position:fixed;
+      top:69px; left:0; right:0;
+      background:var(--paper);
+      flex-direction:column;
+      align-items:flex-start;
+      gap:0;
+      border-bottom:1px solid var(--line);
+      max-height:0;
+      overflow:hidden;
+      transition:max-height 0.25s ease;
+      padding:0 24px;
+    }
+    .nav-links.open{max-height:400px; padding:12px 24px 20px;}
+    .nav-links li{width:100%;border-bottom:1px solid var(--line);}
+    .nav-links li:last-child{border-bottom:none;}
+    .nav-links a{display:block;padding:14px 0;}
+    .nav-links a::after{display:none;}
+    .nav-cta .btn-outline-nav{display:none;}
+    .burger{display:flex;}
+  }
+
+  /* ---------- crop marks ---------- */
+  .crop{
+    position:absolute;
+    width:26px;height:26px;
+    pointer-events:none;
+    opacity:0.55;
+  }
+  .crop::before,.crop::after{
+    content:"";
+    position:absolute;
+    background:var(--ink);
+  }
+  .crop::before{ /* horizontal */
+    width:26px;height:1.5px; top:50%; left:0; transform:translateY(-50%);
+  }
+  .crop::after{ /* vertical */
+    width:1.5px;height:26px; left:50%; top:0; transform:translateX(-50%);
+  }
+  .crop-tl{top:16px;left:16px;}
+  .crop-tr{top:16px;right:16px;}
+  .crop-bl{bottom:16px;left:16px;}
+  .crop-br{bottom:16px;right:16px;}
+
+  /* ---------- color bar divider ---------- */
+  .colorbar{
+    display:flex;
+    height:14px;
+    width:100%;
+  }
+  .colorbar span{flex:1;}
+  .colorbar .c1{background:var(--ink);}
+  .colorbar .c2{background:var(--ink-red);}
+  .colorbar .c3{background:var(--ink-cyan);}
+  .colorbar .c4{background:var(--ink-yellow);}
+  .colorbar .c5{background:var(--paper-dim-2);}
+  .colorbar .c6{background:var(--ink);}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    padding:72px 0 0;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:40px;
+    align-items:center;
+    padding-bottom:56px;
+  }
+  .hero-copy .eyebrow-line span{text-transform:uppercase;letter-spacing:0.06em;}
+  .hero h1{
+    font-size:clamp(2.8rem, 6.4vw, 5.2rem);
+    margin-bottom:22px;
+  }
+  .hero p.lede{
+    font-size:1.15rem;
+    color:var(--ink-soft);
+    max-width:46ch;
+    margin-bottom:34px;
+  }
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;}
+
+  .hero-visual{
+    position:relative;
+    aspect-ratio:1/1;
+    border:1.5px solid var(--line-strong);
+    border-radius:var(--radius-m);
+    background:
+      repeating-linear-gradient(45deg, transparent, transparent 38px, rgba(22,20,15,0.035) 38px, rgba(22,20,15,0.035) 39px);
+  }
+  .proof-item{
+    position:absolute;
+    filter:drop-shadow(3px 4px 0 rgba(22,20,15,0.18));
+  }
+  .proof-shirt{ width:46%; top:6%; left:8%; transform:rotate(-9deg); animation:floatIn 0.9s ease both; }
+  .proof-tote{ width:34%; bottom:8%; left:6%; transform:rotate(7deg); animation:floatIn 0.9s ease 0.15s both; }
+  .proof-tarp{ width:52%; bottom:10%; right:4%; transform:rotate(4deg); animation:floatIn 0.9s ease 0.3s both; }
+  .proof-swatch{ width:16%; top:8%; right:10%; transform:rotate(-6deg); animation:floatIn 0.9s ease 0.45s both; }
+
+  @keyframes floatIn{
+    from{opacity:0; transform:translateY(18px) rotate(var(--r,0deg)) scale(0.94);}
+    to{opacity:1;}
+  }
+
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr; padding-bottom:36px;}
+    .hero-visual{max-width:420px;margin:0 auto;}
+  }
+
+  /* ---------- services ---------- */
+  .svc-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+  }
+  @media (max-width:900px){ .svc-grid{grid-template-columns:1fr;} }
+
+  .svc-card{
+    border:1.5px solid var(--ink);
+    border-radius:var(--radius-m);
+    background:var(--paper);
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .svc-card:hover{transform:translateY(-4px); box-shadow:6px 6px 0 var(--ink);}
+  .svc-media{
+    height:190px;
+    display:flex;align-items:center;justify-content:center;
+    position:relative;
+    border-bottom:1.5px solid var(--ink);
+  }
+  .svc-media.m-red{background:#F7D9D3;}
+  .svc-media.m-cyan{background:#CFEDEF;}
+  .svc-media.m-yellow{background:#FBE9C4;}
+  .svc-media svg{width:88px;height:88px;}
+  .svc-body{padding:26px;display:flex;flex-direction:column;gap:12px;flex:1;}
+  .svc-body h3{font-size:1.35rem;}
+  .svc-body p{color:var(--ink-soft);font-size:0.98rem;}
+  .svc-price{font-size:0.85rem;color:var(--ink-soft);font-weight:600;}
+  .svc-price b{color:var(--ink);font-size:1rem;}
+  .svc-body .btn{margin-top:auto;align-self:flex-start;}
+
+  /* ---------- portfolio ---------- */
+  .filter-row{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:32px;
+  }
+  .filter-btn{
+    padding:9px 18px;
+    border:1.5px solid var(--ink);
+    border-radius:999px;
+    background:transparent;
+    font-weight:600;
+    font-size:0.88rem;
+    transition:background 0.15s ease, color 0.15s ease;
+  }
+  .filter-btn.active, .filter-btn:hover{background:var(--ink);color:var(--paper);}
+
+  .gallery{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+  }
+  @media (max-width:900px){ .gallery{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:520px){ .gallery{grid-template-columns:1fr 1fr;gap:10px;} }
+
+  .g-item{
+    aspect-ratio:1/1;
+    border-radius:var(--radius-s);
+    border:1.5px solid var(--ink);
+    position:relative;
+    overflow:hidden;
+    cursor:pointer;
+    background:var(--paper-dim);
+  }
+  .g-item .tag{
+    position:absolute;top:10px;left:10px;
+    font-size:0.68rem;font-weight:700;
+    background:var(--ink);color:var(--paper);
+    padding:4px 8px;border-radius:4px;
+    text-transform:uppercase;letter-spacing:0.04em;
+  }
+  .g-item .glabel{
+    position:absolute;bottom:0;left:0;right:0;
+    padding:10px 12px;
+    font-size:0.82rem;font-weight:600;
+    background:linear-gradient(to top, rgba(22,20,15,0.75), transparent);
+    color:#fff;
+    transform:translateY(100%);
+    transition:transform 0.2s ease;
+  }
+  .g-item:hover .glabel{transform:translateY(0);}
+  .g-item .g-icon{
+    position:absolute;inset:0;
+    display:flex;align-items:center;justify-content:center;
+    opacity:0.9;
+  }
+  .g-item .g-icon svg{width:42%;height:42%;}
+  .g-item.hidden{display:none;}
+
+  /* ---------- lightbox ---------- */
+  .lightbox{
+    position:fixed;inset:0;
+    background:rgba(22,20,15,0.86);
+    display:none;
+    align-items:center;justify-content:center;
+    z-index:1000;
+    padding:24px;
+  }
+  .lightbox.open{display:flex;}
+  .lb-box{
+    background:var(--paper);
+    border-radius:var(--radius-m);
+    max-width:520px;width:100%;
+    padding:0;
+    overflow:hidden;
+    border:1.5px solid var(--ink);
+  }
+  .lb-media{
+    aspect-ratio:4/3;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .lb-media svg{width:40%;height:40%;}
+  .lb-info{padding:20px 24px; border-top:1.5px solid var(--ink); display:flex; justify-content:space-between; align-items:center; gap:12px;}
+  .lb-info h4{font-family:'Inter';font-weight:700;font-size:1rem;text-transform:none;}
+  .lb-close{
+    position:absolute;
+    top:20px;right:20px;
+    width:40px;height:40px;
+    border-radius:50%;
+    background:var(--paper);
+    border:1.5px solid var(--ink);
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.1rem;
+    font-weight:700;
+  }
+
+  /* ---------- promos ---------- */
+  .promo-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:24px;
+  }
+  @media (max-width:800px){ .promo-grid{grid-template-columns:1fr;} }
+
+  .promo-card{
+    position:relative;
+    display:flex;
+    border:1.5px solid var(--ink);
+    border-radius:var(--radius-m);
+    background:var(--paper);
+    overflow:hidden;
+  }
+  .promo-stub{
+    width:34px;flex:none;
+    background:var(--ink-red);
+    border-right:2px dashed var(--paper);
+    position:relative;
+  }
+  .promo-stub::before, .promo-stub::after{
+    content:"";
+    position:absolute;
+    width:16px;height:16px;
+    background:var(--paper);
+    border-radius:50%;
+    left:50%;
+    transform:translateX(-50%);
+  }
+  .promo-stub::before{top:-8px;}
+  .promo-stub::after{bottom:-8px;}
+  .promo-body{padding:26px 26px 24px;flex:1;display:flex;flex-direction:column;gap:8px;}
+  .promo-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;}
+  .promo-body h3{font-family:'Inter';font-weight:800;font-size:1.15rem;text-transform:none;letter-spacing:0;}
+  .promo-offer{
+    font-size:0.78rem;font-weight:700;
+    background:var(--ink);color:var(--paper);
+    padding:5px 10px;border-radius:4px;
+    white-space:nowrap;
+  }
+  .promo-body p.desc{color:var(--ink-soft);font-size:0.95rem;}
+  .promo-valid{font-size:0.82rem;color:var(--ink-soft);font-weight:600;}
+  .promo-body .btn{align-self:flex-start;margin-top:6px;padding:10px 20px;font-size:0.86rem;}
+
+  /* ---------- why choose ---------- */
+  .why-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:28px;
+  }
+  @media (max-width:900px){ .why-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:520px){ .why-grid{grid-template-columns:1fr;} }
+
+  .why-item{display:flex;flex-direction:column;gap:14px;}
+  .why-icon{
+    width:56px;height:56px;
+    border:1.5px solid var(--ink);
+    border-radius:var(--radius-s);
+    display:flex;align-items:center;justify-content:center;
+    background:var(--paper-dim);
+  }
+  .why-icon svg{width:28px;height:28px;}
+  .why-item h3{font-family:'Inter';font-weight:700;font-size:1.05rem;text-transform:none;letter-spacing:0;}
+  .why-item p{color:var(--ink-soft);font-size:0.94rem;}
+
+  /* ---------- how to order ---------- */
+  .steps{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:0;
+    position:relative;
+  }
+  @media (max-width:900px){
+    .steps{grid-template-columns:1fr;gap:0;}
+  }
+  .step{
+    padding:0 20px 0 0;
+    position:relative;
+  }
+  .step:not(:last-child)::after{
+    content:"";
+    position:absolute;
+    top:26px;
+    right:0;
+    width:100%;
+    height:1.5px;
+    background:var(--line-strong);
+  }
+  @media (max-width:900px){
+    .step{padding:0 0 32px 0;}
+    .step:not(:last-child)::after{
+      top:auto; bottom:0; right:auto; left:26px;
+      width:1.5px; height:100%;
+    }
+  }
+  .step-num{
+    width:52px;height:52px;
+    border-radius:50%;
+    background:var(--ink);
+    color:var(--paper);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Anton';font-size:1.3rem;
+    margin-bottom:18px;
+    position:relative;
+    z-index:2;
+  }
+  .step h3{font-family:'Inter';font-weight:700;font-size:1.05rem;text-transform:none;letter-spacing:0;margin-bottom:8px;}
+  .step p{color:var(--ink-soft);font-size:0.93rem;max-width:26ch;}
+
+  /* ---------- contact ---------- */
+  .contact-grid{
+    display:grid;
+    grid-template-columns:0.85fr 1.15fr;
+    gap:48px;
+  }
+  @media (max-width:900px){ .contact-grid{grid-template-columns:1fr;} }
+
+  .contact-info h2{font-size:clamp(2rem,4vw,2.7rem);margin-bottom:16px;}
+  .contact-info > p{color:var(--ink-soft);margin-bottom:30px;max-width:40ch;}
+
+  .info-list{list-style:none;margin:0 0 28px;padding:0;display:flex;flex-direction:column;gap:16px;}
+  .info-list li{display:flex;gap:14px;align-items:flex-start;}
+  .info-list .ic{
+    width:38px;height:38px;flex:none;
+    border:1.5px solid var(--ink);
+    border-radius:var(--radius-s);
+    display:flex;align-items:center;justify-content:center;
+    background:var(--paper-dim);
+  }
+  .info-list .ic svg{width:18px;height:18px;}
+  .info-list .label{font-size:0.78rem;color:var(--ink-soft);font-weight:600;text-transform:uppercase;letter-spacing:0.04em;}
+  .info-list .val{font-weight:600;font-size:0.98rem;}
+
+  .social-row{display:flex;gap:12px;}
+  .social-row a{
+    width:44px;height:44px;
+    border:1.5px solid var(--ink);
+    border-radius:var(--radius-s);
+    display:flex;align-items:center;justify-content:center;
+    transition:background 0.15s ease,color 0.15s ease;
+  }
+  .social-row a:hover{background:var(--ink);color:var(--paper);}
+  .social-row svg{width:20px;height:20px;}
+
+  .form-card{
+    border:1.5px solid var(--ink);
+    border-radius:var(--radius-m);
+    background:var(--paper-dim);
+    padding:32px;
+  }
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+  @media (max-width:560px){ .form-row{grid-template-columns:1fr;} }
+  .field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;}
+  .field label{font-size:0.82rem;font-weight:700;}
+  .field input, .field select, .field textarea{
+    border:1.5px solid var(--ink);
+    border-radius:var(--radius-s);
+    padding:12px 14px;
+    background:var(--paper);
+    font-family:inherit;
+    font-size:0.95rem;
+    color:var(--ink);
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{
+    outline:3px solid var(--ink-cyan);
+    outline-offset:1px;
+  }
+  .field textarea{resize:vertical;min-height:100px;}
+  .field-file{
+    border:1.5px dashed var(--line-strong);
+    border-radius:var(--radius-s);
+    padding:14px;
+    background:var(--paper);
+    font-size:0.88rem;
+    color:var(--ink-soft);
+  }
+  .form-note{font-size:0.8rem;color:var(--ink-soft);margin-top:14px;text-align:center;}
+  .form-success{
+    display:none;
+    text-align:center;
+    padding:30px 10px;
+  }
+  .form-success.show{display:block;}
+  .form-success h3{font-family:'Inter';font-weight:800;text-transform:none;font-size:1.3rem;margin-bottom:10px;}
+  .form-success p{color:var(--ink-soft);}
+
+  /* ---------- footer ---------- */
+  footer{
+    background:var(--ink);
+    color:var(--paper);
+    padding:64px 0 28px;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr 1fr;
+    gap:36px;
+    margin-bottom:48px;
+  }
+  @media (max-width:800px){ .footer-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:480px){ .footer-grid{grid-template-columns:1fr;} }
+
+  .footer-brand .logo{color:var(--paper);margin-bottom:14px;}
+  .footer-brand p{color:rgba(253,252,249,0.65);max-width:32ch;font-size:0.92rem;}
+  footer h4{font-size:0.82rem;text-transform:uppercase;letter-spacing:0.05em;color:rgba(253,252,249,0.55);margin-bottom:16px;font-weight:700;}
+  .footer-links{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;}
+  .footer-links a{color:rgba(253,252,249,0.85);font-size:0.94rem;}
+  .footer-links a:hover{color:var(--ink-red);}
+  .footer-bottom{
+    border-top:1px solid rgba(253,252,249,0.15);
+    padding-top:24px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:12px;
+    font-size:0.85rem;
+    color:rgba(253,252,249,0.55);
+  }
+
+  /* floating messenger button */
+  .float-msg{
+    position:fixed;
+    bottom:22px;right:22px;
+    z-index:600;
+    display:flex;align-items:center;gap:10px;
+    background:var(--ink-red);
+    color:var(--paper);
+    padding:14px 20px;
+    border-radius:999px;
+    font-weight:700;
+    font-size:0.9rem;
+    box-shadow:4px 4px 0 var(--ink);
+    border:1.5px solid var(--ink);
+    transition:transform 0.15s ease;
+  }
+  .float-msg:hover{transform:translateY(-3px);}
+  .float-msg svg{width:20px;height:20px;}
+  @media (max-width:560px){
+    .float-msg span{display:none;}
+    .float-msg{padding:14px;}
+  }
+
+  .sr-only{
+    position:absolute;width:1px;height:1px;
+    padding:0;margin:-1px;overflow:hidden;
+    clip:rect(0,0,0,0);white-space:nowrap;border:0;
+  }
+
+  a:focus-visible, button:focus-visible, .filter-btn:focus-visible{
+    outline:3px solid var(--ink-cyan);
+    outline-offset:2px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <a href="#home" class="logo">TINTA<span class="dot-red">.</span></a>
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#works">Our Works</a></li>
+        <li><a href="#promos">Promos</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-primary">Inquire Now</a>
+      <button class="burger" id="burgerBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="wrap" style="position:relative;">
+    <div class="crop crop-tl"></div>
+    <div class="crop crop-tr"></div>
+
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow-line"><span class="dot"></span><span>Local Print &amp; Customization Studio</span></div>
+        <h1>Bring Your Ideas to Life.</h1>
+        <p class="lede">Quality printing and customized products made for your business, events, and personal needs — full sublimation shirts, tarpaulins, and tote bags, done right the first time.</p>
+        <div class="hero-actions">
+          <a href="#services" class="btn btn-primary">View Our Services</a>
+          <a href="#contact" class="btn btn-secondary">Contact Us</a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="crop crop-tl"></div>
+        <div class="crop crop-br"></div>
+        <div class="proof-item proof-shirt">
+          <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M36 10 L20 22 L8 40 L24 52 L32 44 L32 108 L88 108 L88 44 L96 52 L112 40 L100 22 L84 10 C84 18 74 24 60 24 C46 24 36 18 36 10 Z" fill="#E8412C" stroke="#16140F" stroke-width="2.5" stroke-linejoin="round"/>
+            <circle cx="60" cy="60" r="14" fill="#FDFCF9" stroke="#16140F" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="proof-item proof-tote">
+          <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M28 40 L92 40 L96 108 L24 108 Z" fill="#F4B62E" stroke="#16140F" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M42 40 C42 24 78 24 78 40" stroke="#16140F" stroke-width="3" fill="none"/>
+            <line x1="24" y1="64" x2="96" y2="64" stroke="#16140F" stroke-width="1.5" stroke-dasharray="4 4"/>
+          </svg>
+        </div>
+        <div class="proof-item proof-tarp">
+          <svg viewBox="0 0 160 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="4" width="152" height="82" rx="4" fill="#1AA6B7" stroke="#16140F" stroke-width="2.5"/>
+            <circle cx="14" cy="14" r="4" fill="#FDFCF9" stroke="#16140F" stroke-width="1.5"/>
+            <circle cx="146" cy="14" r="4" fill="#FDFCF9" stroke="#16140F" stroke-width="1.5"/>
+            <circle cx="14" cy="76" r="4" fill="#FDFCF9" stroke="#16140F" stroke-width="1.5"/>
+            <circle cx="146" cy="76" r="4" fill="#FDFCF9" stroke="#16140F" stroke-width="1.5"/>
+            <text x="80" y="52" text-anchor="middle" font-family="Anton" font-size="20" fill="#FDFCF9">GRAND OPENING</text>
+          </svg>
+        </div>
+        <div class="proof-item proof-swatch">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="56" height="56" rx="4" fill="#FDFCF9" stroke="#16140F" stroke-width="2"/>
+            <rect x="10" y="10" width="18" height="18" fill="#E8412C"/>
+            <rect x="30" y="10" width="20" height="18" fill="#1AA6B7"/>
+            <rect x="10" y="30" width="18" height="20" fill="#F4B62E"/>
+            <rect x="30" y="30" width="20" height="20" fill="#16140F"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="colorbar" aria-hidden="true">
+    <span class="c1"></span><span class="c2"></span><span class="c3"></span><span class="c4"></span><span class="c5"></span><span class="c6"></span>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow-line"><span class="dot"></span><span>What We Print</span></div>
+      <h2>Three specialties. One standard.</h2>
+      <p>Whatever you need made, printed, or worn — it leaves our studio checked, counted, and ready to use.</p>
+    </div>
+
+    <div class="svc-grid">
+      <div class="svc-card">
+        <div class="svc-media m-red">
+          <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M36 10 L20 22 L8 40 L24 52 L32 44 L32 108 L88 108 L88 44 L96 52 L112 40 L100 22 L84 10 C84 18 74 24 60 24 C46 24 36 18 36 10 Z" fill="#FDFCF9" stroke="#16140F" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M46 52 L60 66 L86 40" stroke="#E8412C" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="svc-body">
+          <h3>Full Sublimation</h3>
+          <p>Customized full-color shirts and apparel, printed edge to edge for teams, organizations, events, businesses, and everyday occasions.</p>
+          <span class="svc-price">Starts at <b>₱350</b> / piece</span>
+          <a href="#contact" class="btn btn-secondary">Inquire Now</a>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-media m-cyan">
+          <svg viewBox="0 0 160 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="10" width="148" height="80" rx="4" fill="#FDFCF9" stroke="#16140F" stroke-width="2.5"/>
+            <circle cx="16" cy="20" r="4" fill="none" stroke="#16140F" stroke-width="2"/>
+            <circle cx="144" cy="20" r="4" fill="none" stroke="#16140F" stroke-width="2"/>
+            <circle cx="16" cy="80" r="4" fill="none" stroke="#16140F" stroke-width="2"/>
+            <circle cx="144" cy="80" r="4" fill="none" stroke="#16140F" stroke-width="2"/>
+            <rect x="30" y="34" width="100" height="32" fill="#1AA6B7"/>
+          </svg>
+        </div>
+        <div class="svc-body">
+          <h3>Tarpaulin Printing</h3>
+          <p>High-quality, weatherproof tarpaulins for banners, birthdays, events, business signage, and announcements — any size, any occasion.</p>
+          <span class="svc-price">Starts at <b>₱15</b> / sq ft</span>
+          <a href="#contact" class="btn btn-secondary">Inquire Now</a>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-media m-yellow">
+          <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M28 40 L92 40 L96 108 L24 108 Z" fill="#FDFCF9" stroke="#16140F" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M42 40 C42 24 78 24 78 40" stroke="#16140F" stroke-width="3" fill="none"/>
+            <path d="M42 66 L56 78 L78 54" stroke="#F4B62E" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="svc-body">
+          <h3>Tote Bag Printing</h3>
+          <p>Custom printed tote bags for business giveaways, event freebies, org merch, or your own everyday carry.</p>
+          <span class="svc-price">Starts at <b>₱180</b> / piece</span>
+          <a href="#contact" class="btn btn-secondary">Inquire Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PORTFOLIO ============ -->
+<section id="works" style="background:var(--paper-dim);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow-line"><span class="dot"></span><span>Portfolio</span></div>
+      <h2>Our Recent Works</h2>
+      <p>A look at some of the designs and products we've created for our customers.</p>
+    </div>
+
+    <div class="filter-row" id="filterRow">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="sub">Full Sublimation</button>
+      <button class="filter-btn" data-filter="tarp">Tarpaulin</button>
+      <button class="filter-btn" data-filter="tote">Tote Bags</button>
+      <button class="filter-btn" data-filter="other">Other Designs</button>
+    </div>
+
+    <div class="gallery" id="gallery">
+      <!-- items injected via data attrs, rendered below -->
+    </div>
+  </div>
+</section>
+
+<!-- lightbox -->
+<div class="lightbox" id="lightbox">
+  <div class="lb-box" style="position:relative;">
+    <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+    <div class="lb-media" id="lbMedia"></div>
+    <div class="lb-info">
+      <h4 id="lbTitle">Title</h4>
+      <span class="promo-offer" id="lbCat">Category</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ PROMOS ============ -->
+<section id="promos">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow-line"><span class="dot"></span><span>Deals</span></div>
+      <h2>Special Promos &amp; Offers</h2>
+      <p>Something for first-timers, bulk orders, teams, and every season in between.</p>
+    </div>
+
+    <div class="promo-grid">
+      <div class="promo-card">
+        <div class="promo-stub"></div>
+        <div class="promo-body">
+          <div class="promo-top">
+            <h3>First-Time Customer Discount</h3>
+            <span class="promo-offer">10% OFF</span>
+          </div>
+          <p class="desc">Enjoy 10% off your first order of ₱1,000 or more — any service, any product.</p>
+          <span class="promo-valid">Valid: Ongoing</span>
+          <a href="#contact" class="btn btn-primary">Inquire Now</a>
+        </div>
+      </div>
+
+      <div class="promo-card">
+        <div class="promo-stub"></div>
+        <div class="promo-body">
+          <div class="promo-top">
+            <h3>Bulk Order Deal</h3>
+            <span class="promo-offer">SAVE ₱20/PC</span>
+          </div>
+          <p class="desc">Order 20 pieces or more of shirts or tote bags and save ₱20 off every piece.</p>
+          <span class="promo-valid">Valid: Ongoing</span>
+          <a href="#contact" class="btn btn-primary">Inquire Now</a>
+        </div>
+      </div>
+
+      <div class="promo-card">
+        <div class="promo-stub"></div>
+        <div class="promo-body">
+          <div class="promo-top">
+            <h3>Group &amp; Team Package</h3>
+            <span class="promo-offer">FREE CONSULT</span>
+          </div>
+          <p class="desc">Free design consultation for team, org, or group orders of 15 pieces and up.</p>
+          <span class="promo-valid">Valid: Ongoing</span>
+          <a href="#contact" class="btn btn-primary">Inquire Now</a>
+        </div>
+      </div>
+
+      <div class="promo-card">
+        <div class="promo-stub"></div>
+        <div class="promo-body">
+          <div class="promo-top">
+            <h3>Seasonal Promo</h3>
+            <span class="promo-offer">LIMITED</span>
+          </div>
+          <p class="desc">Back-to-school tarpaulin printing at a special rate — perfect for school events and campaigns.</p>
+          <span class="promo-valid">Valid: [Month placeholder]</span>
+          <a href="#contact" class="btn btn-primary">Inquire Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY CHOOSE US ============ -->
+<section id="about" style="background:var(--paper-dim);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow-line"><span class="dot"></span><span>Why Us</span></div>
+      <h2>Why Customers Choose TINTA</h2>
+      <p>We built this studio around four things that matter most when you're trusting someone with your design.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l2.6 5.3 5.9.9-4.2 4.1 1 5.8L12 15.9 6.7 18l1-5.8L3.5 8.2l5.9-.9L12 2z" stroke="#16140F" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Quality Printing</h3>
+        <p>Vivid color, clean cuts, and prints built to last — wash after wash, weather after weather.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6h16v12H4z" stroke="#16140F" stroke-width="1.6"/><path d="M4 10h16" stroke="#16140F" stroke-width="1.6"/><circle cx="8" cy="14.5" r="1.4" fill="#16140F"/></svg>
+        </div>
+        <h3>Affordable Prices</h3>
+        <p>Studio-quality output at prices that make sense for small budgets and big orders alike.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 20l2-6L16 4l4 4L10 18l-6 2z" stroke="#16140F" stroke-width="1.6" stroke-linejoin="round"/><path d="M13 6l5 5" stroke="#16140F" stroke-width="1.6"/></svg>
+        </div>
+        <h3>Custom Designs</h3>
+        <p>Bring your own design or let us help you build one from scratch — no idea too rough.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" stroke="#16140F" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Fast &amp; Reliable Service</h3>
+        <p>Clear timelines, real updates, and orders that arrive when we say they will.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW TO ORDER ============ -->
+<section id="order">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow-line"><span class="dot"></span><span>Process</span></div>
+      <h2>How to Order</h2>
+      <p>Four steps from idea to pickup — no confusing back-and-forth.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Send Your Design / Idea</h3>
+        <p>Message us your design, logo, or concept — sketches and screenshots are welcome too.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Choose Your Product</h3>
+        <p>Pick your item: shirts, tarpaulin, tote bags, or something else entirely.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Confirm Your Order</h3>
+        <p>We'll confirm sizes, quantity, and price with you before anything goes to print.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Print &amp; Pickup / Delivery</h3>
+        <p>Sit back while we print. Pick up in-studio or have it delivered to you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="colorbar" aria-hidden="true">
+  <span class="c1"></span><span class="c2"></span><span class="c3"></span><span class="c4"></span><span class="c5"></span><span class="c6"></span>
+</div>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" style="background:var(--paper-dim);">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h2>Let's Create<br>Something Together.</h2>
+        <p>Have a design in mind, or need help starting one? Reach out through any channel below — we usually reply within the day.</p>
+
+        <ul class="info-list">
+          <li>
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4z" stroke="#16140F" stroke-width="1.5"/><path d="M4 6l8 6 8-6" stroke="#16140F" stroke-width="1.5"/></svg></span>
+            <span><span class="label">Email</span><br><span class="val">hello@tintaprintstudio.ph</span></span>
+          </li>
+          <li>
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M6 3h4l2 5-3 2a12 12 0 0 0 6 6l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 4 5a2 2 0 0 1 2-2z" stroke="#16140F" stroke-width="1.5" stroke-linejoin="round"/></svg></span>
+            <span><span class="label">Mobile / Viber</span><br><span class="val">0917 000 0000</span></span>
+          </li>
+          <li>
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z" stroke="#16140F" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="#16140F" stroke-width="1.5"/></svg></span>
+            <span><span class="label">Studio Location</span><br><span class="val">Unit 2, Sample St., Your City, Philippines</span></span>
+          </li>
+          <li>
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#16140F" stroke-width="1.5"/><path d="M12 7v5l3 2" stroke="#16140F" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+            <span><span class="label">Business Hours</span><br><span class="val">Mon–Sat, 9:00 AM – 6:00 PM</span></span>
+          </li>
+        </ul>
+
+        <div class="social-row">
+          <a href="#" aria-label="Facebook" title="Facebook">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M14 9h3V6h-3c-2 0-3.5 1.5-3.5 3.5V11H8v3h2.5v6H14v-6h2.5l.5-3H14V9.6c0-.4.1-.6.5-.6z" stroke="#16140F" stroke-width="1.4" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#" aria-label="Messenger" title="Messenger">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 3C6.9 3 3 6.6 3 11.2c0 2.6 1.3 5 3.4 6.5V21l3.1-1.7c.8.2 1.6.3 2.5.3 5.1 0 9-3.6 9-8.4S17.1 3 12 3z" stroke="#16140F" stroke-width="1.4" stroke-linejoin="round"/><path d="M7.5 12.8l3-3.2 2.4 2 3.5-3.2-3 3.3-2.4-2-3.5 3.1z" fill="#16140F"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <form id="inquiryForm">
+          <div class="form-row">
+            <div class="field">
+              <label for="fname">Name</label>
+              <input type="text" id="fname" name="name" required>
+            </div>
+            <div class="field">
+              <label for="fphone">Contact Number</label>
+              <input type="tel" id="fphone" name="phone" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="fservice">Service Needed</label>
+              <select id="fservice" name="service" required>
+                <option value="">Select a service</option>
+                <option>Full Sublimation</option>
+                <option>Tarpaulin Printing</option>
+                <option>Tote Bag Printing</option>
+                <option>Something else</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="fqty">Quantity</label>
+              <input type="text" id="fqty" name="quantity" placeholder="e.g. 25 pcs">
+            </div>
+          </div>
+          <div class="field">
+            <label for="fmsg">Message</label>
+            <textarea id="fmsg" name="message" placeholder="Tell us about your design, sizes, timeline..."></textarea>
+          </div>
+          <div class="field">
+            <label for="ffile">Upload Design <span style="font-weight:400;color:var(--ink-soft);">(optional)</span></label>
+            <input type="file" id="ffile" name="design" class="field-file">
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Submit Inquiry</button>
+          <p class="form-note">We typically respond within the same business day.</p>
+        </form>
+
+        <div class="form-success" id="formSuccess">
+          <h3>Thanks — your inquiry is in!</h3>
+          <p>We've received your details and will message you back shortly. For faster replies, feel free to message us on Facebook too.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<a href="#" class="float-msg" aria-label="Message us on Facebook Messenger">
+  <svg viewBox="0 0 24 24" fill="none"><path d="M12 3C6.9 3 3 6.6 3 11.2c0 2.6 1.3 5 3.4 6.5V21l3.1-1.7c.8.2 1.6.3 2.5.3 5.1 0 9-3.6 9-8.4S17.1 3 12 3z" stroke="#FDFCF9" stroke-width="1.4" stroke-linejoin="round"/></svg>
+  <span>Message Us</span>
+</a>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">TINTA<span class="dot-red">.</span></div>
+        <p>Prints made with care, from concept to pickup.</p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#works">Our Works</a></li>
+          <li><a href="#promos">Promos</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul class="footer-links">
+          <li><a href="#services">Full Sublimation</a></li>
+          <li><a href="#services">Tarpaulin Printing</a></li>
+          <li><a href="#services">Tote Bag Printing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul class="footer-links">
+          <li><a href="#">hello@tintaprintstudio.ph</a></li>
+          <li><a href="#">0917 000 0000</a></li>
+          <li><a href="#">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TINTA Print Studio. All rights reserved.</span>
+      <span>Made in the studio, printed for you.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // mobile nav toggle
+  const burger = document.getElementById('burgerBtn');
+  const navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    burger.classList.toggle('active', isOpen);
+    burger.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    burger.classList.remove('active');
+    burger.setAttribute('aria-expanded', false);
+  }));
+
+  // ---- gallery data ----
+  const galleryData = [
+    {cat:'sub', label:'Basketball Jersey Set', color:'#F7D9D3', icon:'shirt'},
+    {cat:'tarp', label:'Store Opening Banner', color:'#CFEDEF', icon:'tarp'},
+    {cat:'tote', label:'Wedding Giveaway Totes', color:'#FBE9C4', icon:'tote'},
+    {cat:'sub', label:'Corporate Uniform Shirts', color:'#F7D9D3', icon:'shirt'},
+    {cat:'other', label:'Custom Mug Print', color:'#E7E1D2', icon:'other'},
+    {cat:'tarp', label:'Debut Celebration Tarp', color:'#CFEDEF', icon:'tarp'},
+    {cat:'tote', label:'Business Branded Totes', color:'#FBE9C4', icon:'tote'},
+    {cat:'sub', label:'Fun Run Event Shirts', color:'#F7D9D3', icon:'shirt'},
+  ];
+
+  const icons = {
+    shirt:'<svg viewBox="0 0 120 120" fill="none"><path d="M36 10 L20 22 L8 40 L24 52 L32 44 L32 108 L88 108 L88 44 L96 52 L112 40 L100 22 L84 10 C84 18 74 24 60 24 C46 24 36 18 36 10 Z" fill="#E8412C" stroke="#16140F" stroke-width="2.5" stroke-linejoin="round"/></svg>',
+    tarp:'<svg viewBox="0 0 160 90" fill="none"><rect x="4" y="4" width="152" height="82" rx="4" fill="#1AA6B7" stroke="#16140F" stroke-width="2.5"/><circle cx="14" cy="14" r="4" fill="#FDFCF9" stroke="#16140F" stroke-width="1.5"/><circle cx="146" cy="14" r="4" fill="#FDFCF9" stroke="#16140F" stroke-width="1.5"/><circle cx="14" cy="76" r="4" fill="#FDFCF9" stroke="#16140F" stroke-width="1.5"/><circle cx="146" cy="76" r="4" fill="#FDFCF9" stroke="#16140F" stroke-width="1.5"/></svg>',
+    tote:'<svg viewBox="0 0 120 120" fill="none"><path d="M28 40 L92 40 L96 108 L24 108 Z" fill="#F4B62E" stroke="#16140F" stroke-width="2.5" stroke-linejoin="round"/><path d="M42 40 C42 24 78 24 78 40" stroke="#16140F" stroke-width="3" fill="none"/></svg>',
+    other:'<svg viewBox="0 0 120 120" fill="none"><rect x="20" y="30" width="80" height="70" rx="6" fill="#16140F" stroke="#16140F" stroke-width="2.5"/><rect x="30" y="42" width="60" height="46" fill="#FDFCF9"/></svg>'
+  };
+
+  const catLabels = {sub:'Full Sublimation', tarp:'Tarpaulin', tote:'Tote Bags', other:'Other Designs'};
+
+  const galleryEl = document.getElementById('gallery');
+  galleryData.forEach((item, i) => {
+    const div = document.createElement('div');
+    div.className = 'g-item';
+    div.dataset.cat = item.cat;
+    div.style.background = item.color;
+    div.innerHTML = `
+      <span class="tag">${catLabels[item.cat]}</span>
+      <span class="g-icon">${icons[item.icon]}</span>
+      <span class="glabel">${item.label}</span>
+    `;
+    div.addEventListener('click', () => openLightbox(item));
+    galleryEl.appendChild(div);
+  });
+
+  // filters
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      document.querySelectorAll('.g-item').forEach(item => {
+        item.classList.toggle('hidden', f !== 'all' && item.dataset.cat !== f);
+      });
+    });
+  });
+
+  // lightbox
+  const lightbox = document.getElementById('lightbox');
+  const lbMedia = document.getElementById('lbMedia');
+  const lbTitle = document.getElementById('lbTitle');
+  const lbCat = document.getElementById('lbCat');
+
+  function openLightbox(item){
+    lbMedia.style.background = item.color;
+    lbMedia.innerHTML = icons[item.icon];
+    lbTitle.textContent = item.label;
+    lbCat.textContent = catLabels[item.cat];
+    lightbox.classList.add('open');
+  }
+  document.getElementById('lbClose').addEventListener('click', () => lightbox.classList.remove('open'));
+  lightbox.addEventListener('click', (e) => { if(e.target === lightbox) lightbox.classList.remove('open'); });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') lightbox.classList.remove('open'); });
+
+  // form submit (no backend — demo confirmation)
+  const form = document.getElementById('inquiryForm');
+  const success = document.getElementById('formSuccess');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    form.style.display = 'none';
+    success.classList.add('show');
+  });
+</script>
+
+</body>
+</html>
